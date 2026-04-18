@@ -495,10 +495,14 @@ const domains = {
 // Detect which domain we're on
 function detectDomain() {
   const host = window.location.hostname.replace('www.', '');
-  // For local/GitHub Pages testing — read ?domain=xxx from URL
   const params = new URLSearchParams(window.location.search);
   const override = params.get('domain');
-  return override || host;
+  if (override) return override;
+  const hash = window.location.hash.replace('#', '');
+  const hashParams = new URLSearchParams(hash);
+  const hashOverride = hashParams.get('domain');
+  if (hashOverride) return hashOverride;
+  return host;
 }
 
 function openModal(mode) {
@@ -522,8 +526,18 @@ function openBuyModal() { openModal('buy'); }
 
 function closeModal() {
   document.getElementById('modal').classList.remove('open');
-  document.getElementById('modal-form-wrap').style.display = '';
-  document.getElementById('modal-success').style.display = 'none';
+  setTimeout(() => {
+    document.getElementById('modal-form-wrap').style.display = '';
+    document.getElementById('modal-success').style.display = 'none';
+    document.getElementById('f-name').value = '';
+    document.getElementById('f-email').value = '';
+    document.getElementById('f-bid').value = '';
+    document.getElementById('f-note').value = '';
+    const submitBtn = document.getElementById('submit-btn');
+    submitBtn.textContent = 'Bod versturen';
+    submitBtn.style.opacity = '';
+    submitBtn.style.pointerEvents = '';
+  }, 300);
 }
 
 async function submitOffer() {
