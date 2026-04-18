@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Domeinen te koop</title>
-  <meta name="description" content="Premium domeinnamen beschikbaar voor directe aankoop of onderhandeling." />
+  <title>This domain is for sale</title>
+  <meta name="description" content="This premium domain name is available for purchase." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -12,25 +12,37 @@
 
     :root {
       --bg: #ffffff;
-      --bg2: #f7f6f3;
-      --text: #1a1a1a;
-      --text2: #6b6b6b;
-      --text3: #a0a0a0;
-      --border: rgba(0,0,0,0.10);
-      --border2: rgba(0,0,0,0.18);
-      --radius-md: 8px;
-      --radius-lg: 14px;
+      --bg2: #f5f4f0;
+      --bg3: #eeedea;
+      --text: #141414;
+      --text2: #5a5a5a;
+      --text3: #9a9a9a;
+      --border: rgba(0,0,0,0.09);
+      --border2: rgba(0,0,0,0.16);
+      --accent: #141414;
+      --accent-fg: #ffffff;
+      --green-bg: #E1F5EE;
+      --green-fg: #085041;
+      --amber-bg: #FAEEDA;
+      --amber-fg: #633806;
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #1a1a1a;
-        --bg2: #252525;
+        --bg: #1c1c1c;
+        --bg2: #161616;
+        --bg3: #222222;
         --text: #f0efeb;
-        --text2: #a0a09a;
-        --text3: #666660;
-        --border: rgba(255,255,255,0.10);
-        --border2: rgba(255,255,255,0.18);
+        --text2: #9a9a94;
+        --text3: #606059;
+        --border: rgba(255,255,255,0.08);
+        --border2: rgba(255,255,255,0.15);
+        --accent: #f0efeb;
+        --accent-fg: #1c1c1c;
+        --green-bg: #085041;
+        --green-fg: #9FE1CB;
+        --amber-bg: #633806;
+        --amber-fg: #FAC775;
       }
     }
 
@@ -40,277 +52,553 @@
       color: var(--text);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
-    }
-
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
-
-    /* ── Header ── */
-    header {
-      text-align: center;
-      padding: 3.5rem 1rem 2.5rem;
-    }
-
-    header h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-      line-height: 1.2;
-    }
-
-    header p {
-      font-size: 15px;
-      color: var(--text2);
-      font-weight: 300;
-      max-width: 480px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* ── Domain grid ── */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      padding-bottom: 3rem;
-    }
-
-    .card {
-      background: var(--bg);
-      border: 0.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      transition: border-color 0.15s, transform 0.15s;
     }
 
-    .card:hover {
-      border-color: var(--border2);
-      transform: translateY(-1px);
-    }
-
-    .card-top {
+    /* ── Layout ── */
+    .page {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      width: 100%;
+      flex: 1;
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8px;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    /* ── Domain display ── */
+    .domain-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 0.75rem;
     }
 
     .domain-name {
       font-family: 'DM Serif Display', serif;
-      font-size: 18px;
+      font-size: clamp(26px, 6vw, 42px);
       font-weight: 400;
       color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
       word-break: break-all;
-      line-height: 1.3;
     }
 
-    .badge {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 99px;
-      white-space: nowrap;
-      flex-shrink: 0;
+    .domain-tagline {
+      font-size: 14px;
+      color: var(--text2);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
     }
 
-    .badge-buy  { background: #E1F5EE; color: #085041; }
-    .badge-offer{ background: #FAEEDA; color: #633806; }
+    /* ── Price card ── */
+    .price-card {
+      background: var(--bg);
+      border: 0.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1rem;
+    }
 
-    .price-block {}
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
 
-    .price {
-      font-size: 24px;
+    .price-amount {
+      font-size: 32px;
       font-weight: 500;
       color: var(--text);
       line-height: 1;
     }
 
-    .price-sub {
+    .price-note {
       font-size: 12px;
-      color: var(--text2);
+      color: var(--text3);
       font-weight: 300;
-      margin-top: 3px;
+      text-align: right;
+      line-height: 1.5;
     }
 
     .divider {
       height: 0.5px;
       background: var(--border);
+      margin-bottom: 1.25rem;
     }
 
-    .desc {
-      font-size: 13px;
-      color: var(--text2);
-      font-weight: 300;
-      line-height: 1.65;
-      flex: 1;
+    /* ── Buttons ── */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .btn {
       display: block;
       width: 100%;
       text-align: center;
-      padding: 11px;
+      padding: 13px 1rem;
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 500;
-      border-radius: var(--radius-md);
-      border: 0.5px solid var(--border2);
-      background: var(--text);
-      color: var(--bg);
+      border-radius: 10px;
       cursor: pointer;
       text-decoration: none;
       transition: opacity 0.12s, transform 0.1s;
+      border: none;
     }
 
-    .btn:hover  { opacity: 0.82; }
-    .btn:active { transform: scale(0.98); }
+    .btn:active { transform: scale(0.985); }
 
-    /* ── Trust bar ── */
+    .btn-primary {
+      background: var(--accent);
+      color: var(--accent-fg);
+    }
+
+    .btn-primary:hover { opacity: 0.82; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 0.5px solid var(--border2);
+    }
+
+    .btn-secondary:hover { background: var(--bg3); }
+
+    /* ── Trust strip ── */
     .trust {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
-      padding: 1.5rem 1rem;
-      border-top: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-      margin-bottom: 2.5rem;
+      margin-top: 1.75rem;
     }
 
     .trust-item {
       display: flex;
       align-items: center;
-      gap: 7px;
-      font-size: 12px;
-      color: var(--text2);
-      font-weight: 400;
+      gap: 6px;
+      font-size: 11.5px;
+      color: var(--text3);
     }
 
     .trust-item svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
+      width: 13px;
+      height: 13px;
       stroke: var(--text3);
+      flex-shrink: 0;
+    }
+
+    /* ── Offer modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 2rem;
+      width: 100%;
+      max-width: 420px;
+      border: 0.5px solid var(--border);
+    }
+
+    .modal h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .modal-sub {
+      font-size: 13px;
+      color: var(--text2);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: var(--text2);
+      font-weight: 500;
+      margin-bottom: 5px;
+      letter-spacing: 0.03em;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      padding: 10px 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--bg2);
+      border: 0.5px solid var(--border2);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.12s;
+      resize: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--text3);
+    }
+
+    .modal-btns {
+      display: flex;
+      gap: 8px;
+      margin-top: 1.25rem;
+    }
+
+    .modal-btns .btn { flex: 1; }
+
+    /* ── Success state ── */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .success-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+
+    .success-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--green-fg);
+    }
+
+    .success h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+
+    .success p {
+      font-size: 13px;
+      color: var(--text2);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── Not found ── */
+    .not-found {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    .not-found h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .not-found p {
+      font-size: 14px;
+      color: var(--text2);
+      font-weight: 300;
     }
 
     /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 1.5rem 1rem 3rem;
-      font-size: 12px;
+      padding: 1.5rem 1rem 2rem;
+      font-size: 11.5px;
       color: var(--text3);
       font-weight: 300;
     }
-
-    footer a {
-      color: var(--text2);
-      text-decoration: none;
-      border-bottom: 0.5px solid var(--border2);
-    }
-
-    footer a:hover { color: var(--text); }
   </style>
 </head>
 <body>
+
 <div class="page">
-
-  <header>
-    <h1>Premium domeinen te koop</h1>
-    <p>Curated domeinnamen beschikbaar voor directe aankoop of onderhandeling. Veilige overdracht via Escrow.</p>
-  </header>
-
-  <!-- ═══════════════════════════════════════════
-       DOMEINEN — voeg hier je eigen toe of verwijder kaarten
-       ═══════════════════════════════════════════ -->
-
-  <div class="grid">
-
-    <!-- Domein 1 -->
-    <div class="card">
-      <div class="card-top">
-        <div class="domain-name">yourdomain.com</div>
-        <span class="badge badge-buy">Buy now</span>
-      </div>
-      <div class="price-block">
-        <div class="price">€ 2.500</div>
-        <div class="price-sub">Vaste prijs — directe overdracht</div>
-      </div>
-      <div class="divider"></div>
-      <p class="desc">Korte beschrijving van waarom dit domein waardevol is. Niche, toepassingen, doelgroep.</p>
-      <a class="btn" href="mailto:JOUWEMAIL@email.com?subject=Interesse in yourdomain.com">Neem contact op</a>
-    </div>
-
-    <!-- Domein 2 -->
-    <div class="card">
-      <div class="card-top">
-        <div class="domain-name">anotherdomain.be</div>
-        <span class="badge badge-offer">Bieding</span>
-      </div>
-      <div class="price-block">
-        <div class="price">Open voor bod</div>
-        <div class="price-sub">Minimumbod: € 500</div>
-      </div>
-      <div class="divider"></div>
-      <p class="desc">Ideaal voor de Belgische markt. Sterk merkpotentieel voor bedrijven in deze sector.</p>
-      <a class="btn" href="mailto:JOUWEMAIL@email.com?subject=Bod op anotherdomain.be">Doe een bod</a>
-    </div>
-
-    <!-- Domein 3 -->
-    <div class="card">
-      <div class="card-top">
-        <div class="domain-name">thirdexample.io</div>
-        <span class="badge badge-buy">Buy now</span>
-      </div>
-      <div class="price-block">
-        <div class="price">€ 1.200</div>
-        <div class="price-sub">Vaste prijs — directe overdracht</div>
-      </div>
-      <div class="divider"></div>
-      <p class="desc">Geschikt voor tech- of startupprojecten. Herkenbare extensie voor internationale positionering.</p>
-      <a class="btn" href="mailto:JOUWEMAIL@email.com?subject=Interesse in thirdexample.io">Neem contact op</a>
-    </div>
-
-    <!-- Voeg meer domeinen toe door bovenstaand blok te kopiëren -->
-
-  </div>
-
-  <!-- ═══════════════════════════════════════════ -->
-
-  <div class="trust">
-    <div class="trust-item">
-      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 2L9.6 5.8L14 6.3L10.8 9.3L11.7 14L8 11.9L4.3 14L5.2 9.3L2 6.3L6.4 5.8L8 2Z" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      Veilige overdracht via Escrow.com
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="7" width="12" height="7" rx="1.5" stroke-width="1"/>
-        <path d="M5 7V5a3 3 0 016 0v2" stroke-width="1" stroke-linecap="round"/>
-      </svg>
-      Directe overdracht na betaling
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="8" cy="8" r="6" stroke-width="1"/>
-        <path d="M8 5v3.5l2 1.5" stroke-width="1" stroke-linecap="round"/>
-      </svg>
-      Reactie binnen 24 uur
-    </div>
-  </div>
-
-  <footer>
-    Vragen of interesse? <a href="mailto:JOUWEMAIL@email.com">JOUWEMAIL@email.com</a>
-  </footer>
-
+  <div id="content"></div>
 </div>
+
+<footer id="footer" style="display:none">
+  Vragen? <a href="mailto:hassan@youremail.com" style="color:var(--text2);text-decoration:none;border-bottom:0.5px solid var(--border2)">hassan@youremail.com</a>
+</footer>
+
+<!-- Offer modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div id="modal-form-wrap">
+      <h2>Doe een bod</h2>
+      <p class="modal-sub">Vul je gegevens in. Je ontvangt binnen 24 uur een reactie.</p>
+      <div class="field">
+        <label>Jouw naam</label>
+        <input type="text" id="f-name" placeholder="Jan Janssen" />
+      </div>
+      <div class="field">
+        <label>E-mailadres</label>
+        <input type="email" id="f-email" placeholder="jan@bedrijf.com" />
+      </div>
+      <div class="field">
+        <label>Bod (€)</label>
+        <input type="number" id="f-bid" placeholder="500" min="1" />
+      </div>
+      <div class="field">
+        <label>Toelichting (optioneel)</label>
+        <textarea id="f-note" rows="3" placeholder="Waarvoor wil je het domein gebruiken?"></textarea>
+      </div>
+      <div class="modal-btns">
+        <a class="btn btn-secondary" onclick="closeModal()">Annuleren</a>
+        <a class="btn btn-primary" onclick="submitOffer()">Bod versturen</a>
+      </div>
+    </div>
+    <div class="success" id="modal-success">
+      <div class="success-icon">
+        <svg viewBox="0 0 18 18" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l4 4 8-8"/>
+        </svg>
+      </div>
+      <h3>Bod ontvangen</h3>
+      <p>We nemen binnen 24 uur contact met je op via e-mail.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const CONTACT_EMAIL = 'hassan@youremail.com'; // ← AANPASSEN
+
+const domains = {
+  'sell2rent.be': {
+    tagline: 'Een krachtig domein voor de vastgoedsector — ideaal voor diensten die verhuur na verkoop faciliteren.',
+    price: '€ 6.500',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop sell2rent.be',
+  },
+  'verkoopenhuur.be': {
+    tagline: 'Nederlandstalig, direct en memorabel. Sterk merkdomein voor vastgoed- en verhuurplatformen in België.',
+    price: '€ 6.500',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop verkoopenhuur.be',
+  },
+  'decisionliability.com': {
+    tagline: 'Niche .com-domein voor compliance, AI-governance en juridische verantwoordelijkheid rond besluitvorming.',
+    price: '€ 1.200',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop decisionliability.com',
+  },
+  'decisionoversight.com': {
+    tagline: 'Sterk domein voor toezicht- en auditplatformen rond AI- en bedrijfsbeslissingen.',
+    price: '€ 800',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop decisionoversight.com',
+  },
+  'ethicalcontrol.com': {
+    tagline: 'Tijdloos en internationaal inzetbaar voor AI-ethiek, compliance en verantwoord bestuur.',
+    price: '€ 800',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop ethicalcontrol.com',
+  },
+  'secureattest.com': {
+    tagline: 'Ideaal voor cybersecurity- en attestatieplatformen. Kort, memorabel en professioneel.',
+    price: '€ 800',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop secureattest.com',
+  },
+  'ethicsasvalue.com': {
+    tagline: 'Een thought leadership-domein voor organisaties die ethiek als strategische waarde positioneren.',
+    price: '€ 1.200',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop ethicsasvalue.com',
+  },
+  'policydrivenai.com': {
+    tagline: 'Krachtig domein voor beleidsgedreven AI-initiatieven, overheden en reguleringsplatformen.',
+    price: '€ 1.200',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop policydrivenai.com',
+  },
+  'verantwoordeai.be': {
+    tagline: 'Nederlandstalig ankerpunt voor verantwoorde AI-initiatieven in België en Nederland.',
+    price: '€ 800',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop verantwoordeai.be',
+  },
+  'aiinstituut.be': {
+    tagline: 'Premium generiek .be-domein. Ideaal voor een AI-opleiding, kenniscentrum of onderzoeksinstelling.',
+    price: '€ 4.000',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop aiinstituut.be',
+  },
+  'aisales.be': {
+    tagline: 'Compact en direct. Sterk domein voor AI-gedreven sales tools en platforms op de Belgische markt.',
+    price: '€ 700',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop aisales.be',
+  },
+  'aiprojecten.be': {
+    tagline: 'Herkenbaar en SEO-vriendelijk domein voor AI-projectmanagement of consultancydiensten.',
+    price: '€ 350',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop aiprojecten.be',
+  },
+  'aiintegratie.be': {
+    tagline: 'Duidelijk en beschrijvend. Geschikt voor AI-integratiebedrijven en technologiepartners.',
+    price: '€ 450',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop aiintegratie.be',
+  },
+  'aivault.be': {
+    tagline: 'Mysterieus en krachtig. Interessant voor AI-dataopslag, security of premium kennisplatformen.',
+    price: '€ 350',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop aivault.be',
+  },
+  'aiuniversiteit.be': {
+    tagline: 'Hoogwaardig educatief domein. Ideaal voor een online AI-universiteit of grootschalig opleidingsplatform.',
+    price: '€ 3.000',
+    priceNote: 'Vaste prijs\nof doe een bod',
+    buySubject: 'Aankoop aiuniversiteit.be',
+  },
+};
+
+// Detect which domain we're on
+function detectDomain() {
+  const host = window.location.hostname.replace('www.', '');
+  // For local/GitHub Pages testing — read ?domain=xxx from URL
+  const params = new URLSearchParams(window.location.search);
+  const override = params.get('domain');
+  return override || host;
+}
+
+function openModal() {
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  document.getElementById('modal-form-wrap').style.display = '';
+  document.getElementById('modal-success').style.display = 'none';
+}
+
+function submitOffer() {
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const bid   = document.getElementById('f-bid').value.trim();
+  const note  = document.getElementById('f-note').value.trim();
+  const domain = detectDomain();
+
+  if (!name || !email || !bid) {
+    alert('Vul naam, e-mailadres en bod in.');
+    return;
+  }
+
+  const subject = encodeURIComponent(`Bod op ${domain}: €${bid}`);
+  const body = encodeURIComponent(
+    `Domein: ${domain}\nNaam: ${name}\nE-mail: ${email}\nBod: €${bid}\n\nToelichting:\n${note || '—'}`
+  );
+
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+  document.getElementById('modal-form-wrap').style.display = 'none';
+  document.getElementById('modal-success').style.display = 'block';
+}
+
+// Close modal on overlay click
+document.getElementById('modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Render page
+const domain = detectDomain();
+const data = domains[domain];
+const content = document.getElementById('content');
+const footer = document.getElementById('footer');
+
+if (data) {
+  document.title = `${domain} — te koop`;
+  footer.style.display = 'block';
+
+  content.innerHTML = `
+    <div class="domain-label">Domeinnaam te koop</div>
+    <div class="domain-name">${domain}</div>
+    <p class="domain-tagline">${data.tagline}</p>
+
+    <div class="price-card">
+      <div class="price-row">
+        <div class="price-amount">${data.price}</div>
+        <div class="price-note">${data.priceNote.replace('\n','<br>')}</div>
+      </div>
+      <div class="divider"></div>
+      <div class="btn-group">
+        <a class="btn btn-primary"
+           href="mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(data.buySubject)}&body=${encodeURIComponent('Ik ben geïnteresseerd in de aankoop van ' + domain + ' tegen de vraagprijs van ' + data.price + '.\n\nMijn naam:\nMijn e-mail:\nMijn telefoonnummer:')}">
+          Koop nu voor ${data.price}
+        </a>
+        <button class="btn btn-secondary" onclick="openModal()">Doe een bod</button>
+      </div>
+    </div>
+
+    <div class="trust">
+      <div class="trust-item">
+        <svg viewBox="0 0 14 14" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 1l1.4 3.4L12 4.9 9.4 7.4l.7 3.6L7 9.4 3.9 11l.7-3.6L2 4.9l3.6-.5L7 1z"/>
+        </svg>
+        Veilige overdracht via Escrow
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 14 14" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="10" height="7" rx="1.5"/>
+          <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6"/>
+        </svg>
+        Directe overdracht na betaling
+      </div>
+      <div class="trust-item">
+        <svg viewBox="0 0 14 14" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="7" cy="7" r="5.5"/>
+          <path d="M7 4.5v3l1.8 1.2"/>
+        </svg>
+        Reactie binnen 24 uur
+      </div>
+    </div>
+  `;
+} else {
+  content.innerHTML = `
+    <div class="not-found">
+      <h1>Domein niet gevonden</h1>
+      <p>Dit domein staat niet in onze verkooplijst.</p>
+    </div>
+  `;
+}
+</script>
 </body>
 </html>
